@@ -2,6 +2,7 @@
     <data>
         <record model="ir.ui.view" id="view_groups_form">
             <field name="inherit_id" ref="base.view_groups_form" />
+            <field name="view_type">form</field>
             <field name="model">res.groups</field>
             <field name="arch" type="xml">
                 <data>
@@ -12,17 +13,15 @@
                         <attribute name="attrs">{'readonly': [('is_dynamic', '=', True)]}</attribute>
                     </field>
                     <field name="users" position="before">
-                        <group name="auth_dynamic_groups" attrs="{'invisible': [('is_dynamic', '=', False)]}">
-                            <field
-                                name="dynamic_group_condition"
-                                placeholder="Fill in your condition..."
-                                attrs="{'required': [('is_dynamic', '=', True)]}"
-                                colspan="4" nolabel="1" />
-                            <button
-                                type="object"
-                                name="action_evaluate"
-                                string="Evaluate" />
-                        </group>
+                        <field
+                            name="dynamic_group_condition"
+                            colspan="4" nolabel="1"
+                            attrs="{'invisible': [('is_dynamic', '=', False)]}" />
+                        <button
+                            type="object"
+                            name="action_evaluate"
+                            string="Evaluate"
+                            attrs="{'invisible': [('is_dynamic', '=', False)]}" />
                     </field>
                 </data>
             </field>

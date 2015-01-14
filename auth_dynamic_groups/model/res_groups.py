@@ -18,46 +18,60 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, exceptions
+import logging
+from openerp.osv.orm import Model
+from openerp.osv import fields
 from openerp.tools.safe_eval import safe_eval
-from openerp import _
+from openerp import SUPERUSER_ID
 
 
-class res_groups(models.Model):
+class res_groups(Model):
     _inherit = 'res.groups'
 
-    is_dynamic = fields.Boolean('Dynamic')
-    dynamic_group_condition = fields.Text(
-        'Condition', help='The condition to be met for a user to be a '
-        'member of this group. It is evaluated as python code at login '
-        'time, you get `user` passed as a browse record')
+    _columns = {
+        'is_dynamic': fields.boolean('Dynamic'),
+        'dynamic_group_condition': fields.text(
+            'Condition', help='The condition to be met for a user to be a '
+            'member of this group. It is evaluated as python code at login '
+            'time, you get `user` passed as a browse record')
+    }
 
-    @api.multi
-    def eval_dynamic_group_condition(self, uid=None):
-        user = self.env['res.users'].browse([uid]) if uid else self.env.user
-        result = all(
-            self.mapped(
-                lambda this: safe_eval(
-                    this.dynamic_group_condition or 'False',
+    def eval_dynamic_group_condition(self, cr, uid, ids, context=None):
+        result = True
+        user = self.pool.get('res.users').browse(cr, SUPERUSER_ID, uid,
+                                                 context=context)
+        for this in self.browse(cr, uid, ids, context=context):
+            result &= bool(
+                safe_eval(
+                    this.dynamic_group_condition,
                     {
-                        'user': user.sudo(),
+                        'user': user,
                         'any': any,
                         'all': all,
                         'filter': filter,
-                    })))
+                    }))
         return result
 
-    @api.multi
-    @api.constrains('dynamic_group_condition')
-    def _check_dynamic_group_condition(self):
+    def _check_dynamic_group_condition(self, cr, uid, ids, context=None):
         try:
-            self.filtered('is_dynamic').eval_dynamic_group_condition()
-        except (NameError, SyntaxError, TypeError):
-            raise exceptions.ValidationError(
-                _('The condition doesn\'t evaluate correctly!'))
+            for this in self.browse(cr, uid, ids, context=context):
+                if this.is_dynamic:
+                    this.eval_dynamic_group_condition()
+        except (NameError, SyntaxError, TypeError) as e:
+            logging.info(e)
+            return False
+        return True
 
-    @api.multi
-    def action_evaluate(self):
-        res_users = self.env['res.users']
-        for user in res_users.search([]):
-            res_users.update_dynamic_groups(user.id, self.env.cr.dbname)
+    _constraints = [
+        (_check_dynamic_group_condition,
+         'The condition doesn\'t evaluate correctly!',
+         ['dynamic_group_condition']),
+    ]
+
+    def action_evaluate(self, cr, uid, ids, context=None):
+        user_obj = self.pool.get('res.users')
+        for user in user_obj.browse(
+                cr, uid,
+                user_obj.search(cr, uid, [], context=context),
+                context=context):
+            user_obj.update_dynamic_groups(user.id, cr.dbname)
