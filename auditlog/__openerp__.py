@@ -21,8 +21,15 @@
 
 {
     'name': "Audit Log",
-    'version': "8.0.1.0.0",
-    'author': "ABF OSIELL,Odoo Community Association (OCA)",
+    'description': """
+Track every user operation on all the objects of the system.
+============================================================
+
+The administrator can subscribe to rules for create, read, write and delete on
+models and can check logs.
+    """,
+    'version': "1.0",
+    'author': "ABF OSIELL",
     'website': "http://www.osiell.com",
     'category': "Tools",
     'depends': [
@@ -34,5 +41,7 @@
     ],
     'application': True,
     'installable': True,
-    'pre_init_hook': 'pre_init_hook',
+    'active': False,
 }
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

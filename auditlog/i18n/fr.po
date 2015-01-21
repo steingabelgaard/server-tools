@@ -1,21 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * auditlog
-# 
-# Translators:
+#	* auditlog
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: server-tools (8.0)\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-29 11:14+0000\n"
-"PO-Revision-Date: 2015-09-18 13:56+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: French (http://www.transifex.com/oca/OCA-server-tools-8-0/language/fr/)\n"
+"POT-Creation-Date: 2015-01-22 09:51+0000\n"
+"PO-Revision-Date: 2015-01-22 09:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: auditlog
 #: field:auditlog.rule,action_id:0
@@ -43,21 +41,29 @@ msgid "Auditlog - Rule"
 msgstr "Auditlog - Règle"
 
 #. module: auditlog
-#: field:auditlog.log,create_uid:0 field:auditlog.log.line,create_uid:0
+#: field:auditlog.log,create_uid:0
+#: field:auditlog.log.line,create_uid:0
 #: field:auditlog.rule,create_uid:0
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: auditlog
-#: field:auditlog.log,create_date:0 field:auditlog.log.line,create_date:0
+#: field:auditlog.log,create_date:0
+#: field:auditlog.log.line,create_date:0
 #: field:auditlog.rule,create_date:0
 msgid "Created on"
-msgstr "Date"
+msgstr ""
 
 #. module: auditlog
 #: view:auditlog.log:auditlog.view_auditlog_log_search
+#: field:auditlog.log,timestamp:0
 msgid "Date"
-msgstr ""
+msgstr "Date"
+
+#. module: auditlog
+#: field:auditlog.log.line,field_description:0
+msgid "Description"
+msgstr "Description"
 
 #. module: auditlog
 #: view:auditlog.rule:auditlog.view_auditlog_rule_search
@@ -83,22 +89,25 @@ msgid "Group By..."
 msgstr "Grouper par..."
 
 #. module: auditlog
-#: field:auditlog.log,id:0 field:auditlog.log.line,id:0
+#: field:auditlog.log,id:0
+#: field:auditlog.log.line,id:0
 #: field:auditlog.rule,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: auditlog
-#: field:auditlog.log,write_uid:0 field:auditlog.log.line,write_uid:0
+#: field:auditlog.log,write_uid:0
+#: field:auditlog.log.line,write_uid:0
 #: field:auditlog.rule,write_uid:0
 msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
+msgstr ""
 
 #. module: auditlog
-#: field:auditlog.log,write_date:0 field:auditlog.log.line,write_date:0
+#: field:auditlog.log,write_date:0
+#: field:auditlog.log.line,write_date:0
 #: field:auditlog.rule,write_date:0
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr ""
 
 #. module: auditlog
 #: view:auditlog.log:auditlog.view_auditlog_log_form
@@ -146,7 +155,8 @@ msgstr "Méthode"
 
 #. module: auditlog
 #: view:auditlog.log:auditlog.view_auditlog_log_search
-#: field:auditlog.log,model_id:0 field:auditlog.rule,model_id:0
+#: field:auditlog.log,model_id:0
+#: field:auditlog.rule,model_id:0
 msgid "Model"
 msgstr "Modèle"
 
@@ -206,35 +216,35 @@ msgstr "Sélectionnez le modèle pour lequel vous voulez générer un historique
 
 #. module: auditlog
 #: help:auditlog.rule,log_create:0
-msgid ""
-"Select this if you want to keep track of creation on any record of the model"
-" of this rule"
-msgstr "Cochez cette case si vous voulez garder une trace de la création d'un nouvel enregistrement concernant le modèle défini dans cette règle."
+msgid "Select this if you want to keep track of creation on any record of the model of this rule"
+msgstr ""
+"Cochez cette case si vous voulez garder une trace de la création d'un nouvel "
+"enregistrement concernant le modèle défini dans cette règle."
 
 #. module: auditlog
 #: help:auditlog.rule,log_unlink:0
-msgid ""
-"Select this if you want to keep track of deletion on any record of the model"
-" of this rule"
-msgstr "Cochez cette case si vous voulez garder une trace des suppressions des enregistrements du modèle défini dans cette règle."
+msgid "Select this if you want to keep track of deletion on any record of the model of this rule"
+msgstr ""
+"Cochez cette case si vous voulez garder une trace des suppressions des "
+"enregistrements du modèle défini dans cette règle."
 
 #. module: auditlog
 #: help:auditlog.rule,log_write:0
-msgid ""
-"Select this if you want to keep track of modification on any record of the "
-"model of this rule"
-msgstr "Cochez cette case si vous voulez garder une trace des modifications sur chaque enregistrement du modèle défini dans cette règle."
+msgid "Select this if you want to keep track of modification on any record of the model of this rule"
+msgstr ""
+"Cochez cette case si vous voulez garder une trace des modifications sur "
+"chaque enregistrement du modèle défini dans cette règle."
 
 #. module: auditlog
 #: help:auditlog.rule,log_read:0
-msgid ""
-"Select this if you want to keep track of read/open on any record of the "
-"model of this rule"
-msgstr "Cochez cette case si vous voulez garder une trace de la lecture/ouverture de chaque enregistrement du modèle défini dans cette règle."
+msgid "Select this if you want to keep track of read/open on any record of the model of this rule"
+msgstr ""
+"Cochez cette case si vous voulez garder une trace de la lecture/ouverture de "
+"chaque enregistrement du modèle défini dans cette règle."
 
 #. module: auditlog
-#: view:auditlog.rule:auditlog.view_auditlog_rule_search
 #: field:auditlog.rule,state:0
+#: view:auditlog.rule:auditlog.view_auditlog_rule_search
 msgid "State"
 msgstr "État"
 
@@ -250,11 +260,18 @@ msgid "Subscribed"
 msgstr "Abonné"
 
 #. module: auditlog
+#: field:auditlog.log.line,field_name:0
+msgid "Technical name"
+msgstr "Nom technique"
+
+#. module: auditlog
 #: sql_constraint:auditlog.rule:0
-msgid ""
-"There is already a rule defined on this model\n"
+msgid "There is already a rule defined on this model\n"
 "You cannot define another: please edit the existing one."
-msgstr "Il existe déjà une règle définie sur ce modèle\nVous ne pouvez pas en définir une nouvelle, vous devez modifier celle existante."
+msgstr ""
+"Il existe déjà une règle définie sur ce modèle\n"
+"Vous ne pouvez pas en définir une nouvelle, vous devez modifier celle "
+"existante."
 
 #. module: auditlog
 #: view:auditlog.rule:auditlog.view_auditlog_rule_form
@@ -268,7 +285,7 @@ msgid "User"
 msgstr "Utilisateur"
 
 #. module: auditlog
-#: field:auditlog.rule,user_ids:0
+#: field:auditlog.rule,user_id:0
 msgid "Users"
 msgstr "Utilisateurs"
 
@@ -278,12 +295,7 @@ msgid "Values"
 msgstr "Valeurs"
 
 #. module: auditlog
-#: code:addons/auditlog/models/rule.py:478
+#: code:addons/auditlog/models/rule.py:0
 #, python-format
 msgid "View logs"
 msgstr "Consulter les journaux"
-
-#. module: auditlog
-#: help:auditlog.rule,user_ids:0
-msgid "if  User is not added then it will applicable for all users"
-msgstr ""
