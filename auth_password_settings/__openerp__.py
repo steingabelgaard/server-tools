@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-#
-#    Author: Dhaval Patel
+#    
 #    Copyright (C) 2011 - TODAY Denero Team. (<http://www.deneroteam.com>)
+#    All Rights Reserved
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -24,10 +24,15 @@
     'category': 'base',
     'sequence': 3,
     'summary': 'User Password Settings',
-    'author': 'Denero Team,Odoo Community Association (OCA)',
+    'author': 'Dhaval Patel<dhaval@deneroteam.com>',
     'website': 'http://www.deneroteam.com',
-    'maintainer': 'Denero Team',
-    'license': 'AGPL-3',
+    'description': """
+A setting module to manage user password settings
+-- Minimum Password length in character
+-- Use Capital Letter
+-- Use digit
+-- Use special character
+""",
     'depends': [
         'base', 'base_setup',
     ],
@@ -35,13 +40,13 @@
         # Datas
         "data/auth_password_settings_data.xml",
         # Security
-
+        
         # Views
         "views/res_config_view.xml",
         # Menus
-
+        
         # Wizards
-
+        
     ],
     'demo': [
     ],
