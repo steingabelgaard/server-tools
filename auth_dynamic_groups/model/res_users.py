@@ -18,7 +18,8 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.models import Model
+from openerp.models import Model,api
+from openerp.modules.registry import RegistryManager
 from openerp import SUPERUSER_ID
 
 
@@ -34,22 +35,21 @@ class res_users(Model):
         return uid
 
     def update_dynamic_groups(self, uid, db):
-        cr = self.pool._db.cursor(serialized=False)
-        groups_obj = self.pool.get('res.groups')
-        try:
-            dynamic_groups = groups_obj.browse(
-                cr, SUPERUSER_ID, groups_obj.search(
-                    cr, SUPERUSER_ID, [('is_dynamic', '=', True)]))
-            cr.execute(
-                'delete from res_groups_users_rel where uid=%s and gid in %s',
-                (uid, tuple(dynamic_groups.ids)))
-            for dynamic_group in dynamic_groups:
-                if dynamic_group.eval_dynamic_group_condition(uid=uid):
-                    cr.execute(
-                        'insert into res_groups_users_rel (uid, gid) values '
-                        '(%s, %s)',
-                        (uid, dynamic_group.id))
-            self.invalidate_cache(cr, uid, ['groups_id'], [uid])
-            cr.commit()
-        finally:
-            cr.close()
+        pool = RegistryManager.get(db)
+        cr = pool._db.cursor()
+        user = pool.get('res.users').browse(cr, SUPERUSER_ID, uid)
+        groups_obj = pool.get('res.groups')
+        user.write(
+            {
+                'groups_id': [
+                    (4, dynamic_group.id)
+                    if dynamic_group.eval_dynamic_group_condition(uid=uid)
+                    else (3, dynamic_group.id)
+                    for dynamic_group in groups_obj.browse(
+                        cr, SUPERUSER_ID,
+                        groups_obj.search(cr, SUPERUSER_ID,
+                                          [('is_dynamic', '=', True)]))
+                ],
+            })
+        cr.commit()
+        cr.close()
