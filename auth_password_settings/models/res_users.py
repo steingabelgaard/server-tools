@@ -29,6 +29,7 @@ from openerp.exceptions import ValidationError, AccessDenied
 import werkzeug
 import operator
 import logging
+import openerp
 from openerp import http
 from openerp.http import request
 from openerp.addons.web.controllers.main import Session
