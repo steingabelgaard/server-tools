@@ -122,13 +122,14 @@ class AuthSignupHomeEx(AuthSignupHome):
 
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
+                res_users = request.registry.get('res.users')
                 if qcontext.get('token'):
+                    res_users._validate_password(request.cr, openerp.SUPERUSER_ID, qcontext.get('password'), raise_=True)
                     self.do_signup(qcontext)
                     return super(AuthSignupHome, self).web_login(*args, **kw)
                 else:
                     login = qcontext.get('login')
                     assert login, "No login provided."
-                    res_users = request.registry.get('res.users')
                     res_users.reset_password(request.cr, openerp.SUPERUSER_ID, login)
                     qcontext['message'] = _("An email has been sent with credentials to reset your password")
             except SignupError:
