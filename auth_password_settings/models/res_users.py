@@ -138,3 +138,5 @@ class AuthSignupHomeEx(AuthSignupHome):
                 qcontext['error'] = e.value
             except Exception, e:
                 qcontext['error'] = _(e.message)
+                
+        return request.render('auth_signup.reset_password', qcontext)
