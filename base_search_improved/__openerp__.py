@@ -9,9 +9,6 @@
     'website': 'https://odoo-community.org/',
     'author': 'Daniel Reis, Odoo Community Association (OCA)',
     'license': 'AGPL-3',
-    'data': [
-        'views/ir_model.xml',
-    ],
     'installable': True,
     'depends': [
         'base',
