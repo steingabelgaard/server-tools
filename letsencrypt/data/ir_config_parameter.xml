@@ -4,10 +4,6 @@
         <record id="config_parameter_reload" model="ir.config_parameter" forcecreate="True">
             <field name="key">letsencrypt.reload_command</field>
             <field name="value">sudo /usr/sbin/service nginx reload</field>
-<<<<<<< HEAD
-=======
-            <field name="group_ids" eval="[(6, False, [ref('base.group_system')])]" />
->>>>>>> refs/remotes/dreispt/8.0-search
         </record>
     </data>
 </openerp>

@@ -4,7 +4,6 @@
 {
     "name": "Let's encrypt",
     "version": "8.0.1.0.0",
-<<<<<<< HEAD
     "author": "Therp BV,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "category": "Hidden/Dependency",
@@ -21,30 +20,6 @@
     "external_dependencies": {
         'bin': [
             'openssl',
-=======
-    "author": "Therp BV,"
-              "Tecnativa,"
-              "Odoo Community Association (OCA)",
-    "license": "AGPL-3",
-    "category": "Hidden/Dependency",
-    "summary": "Request SSL certificates from letsencrypt.org",
-    "depends": [
-        'base',
-    ],
-    "data": [
-        "data/ir_config_parameter.xml",
-        "data/ir_cron.xml",
-    ],
-    "post_init_hook": 'post_init_hook',
-    "installable": True,
-    "external_dependencies": {
-        'bin': [
-            'openssl',
-        ],
-        'python': [
-            'acme_tiny',
-            'IPy',
->>>>>>> refs/remotes/dreispt/8.0-search
         ],
     },
 }
