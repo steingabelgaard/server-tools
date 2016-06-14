@@ -2,15 +2,41 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===============
-Improved Search
-===============
+====================
+Improved Name Search
+====================
 
-This module extends the search functionality to add simple shortcuts for
-more complex search conditions.
+Extends the name search feature to use fuzzy matching methods, and
+allowing to search in additional related record attributes.
 
-Features:
-* Fuzzy search: use wildcards ("%") in place of spaces
+The name search is the lookup feature to select a related record.
+For example, selecting a Customer on a new Sales order.
+
+For example, typing "john brown" doesn't match "John M. Brown".
+The fuzzy search looks up for record containing all the words,
+so "John M. Brown" would be a match.
+It also tolerates words in a different order, so searching
+for "brown john" would also works.
+
+.. image:: images/image0.png
+
+Additionally, an Administrator can configure other fields to also lookup into.
+For example, Customers could be additionally searched by City or Phone number.
+
+.. image:: images/image2.png
+
+How it works:
+
+Regular name search is performed, and the additional search logic is only
+triggered if no results are found. This way, no significan overhead is added
+on searches that would normally yield results.
+
+But if no results are found, then sdditional search methods are tried until
+some results are found. The sepcific methods used are:
+
+- Try regular search on each of the additional fields
+- Try ordered word search on each of the search fields
+- Try unordered word search on each of the search fields
 
 
 Installation
@@ -22,21 +48,20 @@ No specific requirements.
 Configuration
 =============
 
-No specific setup needed.
+The fuzzy search is automatically enabled on all Models.
+Note that this only affects typing in related fields.
+The regular ``search()``, used in the top right search box, is not affected.
+
+Additional search fields can be configured at Settings > Technical > Database > Models,
+using the "Name Search Fields" field.
+
+.. image:: images/image1.png
 
 
 Usage
 =====
 
-On any search box, in list or kanban views, type your expressions
-and the magic will be automatically done.
-
-For example, in a demo database, on the Contacts / Customers try searching
-for "john brown". With this module installed will see the result
-"John M. Brown", because of the fuzzy search feature.
-
-At this moment the extensions are only applied for 'ilike' operations, the default used
-by the search bar for text string fields.
+Just type into any related field, such as Customer on a Sale Order.
 
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
@@ -49,11 +74,8 @@ by the search bar for text string fields.
 Known issues / Roadmap
 ======================
 
-Additional serach tokens are welcome.
-
-Some ideas:
-* ".." for intervals
-* Date tokens such as "t" for today
+* The list of additional fields to search could benefit from caching, for efficiency.
+* This feature could be implemented for regular ``search`` on the ``name`` field.
 
 
 Bug Tracker
