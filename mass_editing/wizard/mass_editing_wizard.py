@@ -92,6 +92,8 @@ class MassEditingWizard(orm.TransientModel):
                     all_fields[field.name] = {
                         'type': field.ttype, 'string': field.field_description,
                         'relation': field.relation}
+                    if 'domain' in field_info[field.name]:
+                        all_fields[field.name]['domain'] = field_info[field.name]['domain']
                     etree.SubElement(xml_group, 'field', {
                         'name': "selection__" + field.name, 'colspan': '2'})
                     etree.SubElement(xml_group, 'field', {
