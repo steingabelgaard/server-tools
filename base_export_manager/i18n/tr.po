@@ -3,9 +3,11 @@
 # * base_export_manager
 # 
 # Translators:
+# Ahmet Altınışık <aaltinisik@altinkaya.com.tr>, 2016
+# Antonio Trueba, 2016
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2015
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014
-# Hotellook, 2014
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2016
 # Paolo Valier, 2016
 # Rudolf Schnapka <rs@techno-flex.de>, 2016
 msgid ""
@@ -15,46 +17,46 @@ msgstr ""
 "POT-Creation-Date: 2016-07-28 00:59+0000\n"
 "PO-Revision-Date: 2016-07-27 23:58+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/OCA-server-tools-8-0/language/es/)\n"
+"Language-Team: Turkish (http://www.transifex.com/oca/OCA-server-tools-8-0/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: base_export_manager
 #: help:ir.exports,model_id:0 help:ir.exports.line,model1_id:0
 msgid "Database model to export."
-msgstr "Modelo de la base de datos a exportar."
+msgstr ""
 
 #. module: base_export_manager
 #: view:ir.exports:base_export_manager.ir_exports_form_view
 msgid "Export Profile"
-msgstr "Perfil de exportación"
+msgstr "Dışa Aktarım Profili"
 
 #. module: base_export_manager
 #: model:ir.actions.act_window,name:base_export_manager.ir_exports_action
 #: view:ir.exports:base_export_manager.ir_exports_tree_view
 #: model:ir.ui.menu,name:base_export_manager.ir_exports_menu
 msgid "Export Profiles"
-msgstr "Perfiles de exportación"
+msgstr "Dışa Aktarma Profilleri"
 
 #. module: base_export_manager
 #: code:addons/base_export_manager/models/ir_exports_line.py:140
 #, python-format
 msgid "Field '%s' already exists"
-msgstr "El campo '%s' ya existe"
+msgstr "'%s' alanı zaten var"
 
 #. module: base_export_manager
 #: code:addons/base_export_manager/models/ir_exports_line.py:135
 #, python-format
 msgid "Field '%s' does not exist"
-msgstr "El campo '%s' no existe"
+msgstr "'%s' alanı yok"
 
 #. module: base_export_manager
 #: field:ir.exports.line,field1_id:0
 msgid "First field"
-msgstr "Primer campo"
+msgstr ""
 
 #. module: base_export_manager
 #: field:ir.exports.line,model1_id:0
@@ -69,12 +71,12 @@ msgstr ""
 #. module: base_export_manager
 #: field:ir.exports,model_id:0
 msgid "Model"
-msgstr "Modelo"
+msgstr "Model"
 
 #. module: base_export_manager
 #: field:ir.exports.line,field2_id:0
 msgid "Second field"
-msgstr "Segundo campo"
+msgstr ""
 
 #. module: base_export_manager
 #: field:ir.exports.line,model2_id:0
@@ -84,12 +86,12 @@ msgstr ""
 #. module: base_export_manager
 #: field:ir.exports.line,sequence:0
 msgid "Sequence"
-msgstr "Secuencia"
+msgstr "Sıra"
 
 #. module: base_export_manager
 #: field:ir.exports.line,field3_id:0
 msgid "Third field"
-msgstr "Tercer campo"
+msgstr ""
 
 #. module: base_export_manager
 #: field:ir.exports.line,model3_id:0
