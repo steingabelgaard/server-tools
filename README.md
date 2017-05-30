@@ -13,6 +13,7 @@ This project aim to deal with modules related to manage Odoo server environment 
  - Manage email settings
 
 [//]: # (addons)
+
 Available addons
 ----------------
 addon | version | summary
@@ -26,7 +27,7 @@ addon | version | summary
 [auth_from_http_remote_user](auth_from_http_remote_user/) | 8.0.1.0.0 | Authenticate via HTTP Remote User
 [auth_signup_verify_email](auth_signup_verify_email/) | 8.0.1.0.0 | Force uninvited users to use a good email for signup
 [auth_supplier](auth_supplier/) | 8.0.1.0.0 | Auth Supplier
-[auto_backup](auto_backup/) | 8.0.1.0.2 | Backups database
+[auto_backup](auto_backup/) | 8.0.1.0.3 | Backups database
 [base_concurrency](base_concurrency/) | 8.0.1.1.0 | Base Concurrency
 [base_custom_info](base_custom_info/) | 8.0.1.0.0 | Add custom field in models
 [base_debug4all](base_debug4all/) | 8.0.1.0.0 | Shows full debug options for all users
@@ -34,6 +35,7 @@ addon | version | summary
 [base_external_dbsource](base_external_dbsource/) | 8.0.1.3.0 | External Database Sources
 [base_field_validator](base_field_validator/) | 8.0.1.0.0 | Validate fields using regular expressions
 [base_import_match](base_import_match/) | 8.0.1.0.1 | Try to avoid duplicates before importing
+[base_import_security_group](base_import_security_group/) | 8.0.1.0.0 | Group-based permissions for importing CSV files
 [base_ir_filters_active](base_ir_filters_active/) | 8.0.1.0.0 | Allows you to disable (hide) filters
 [base_module_doc_rst](base_module_doc_rst/) | 8.0.1.0.0 | Modules Technical Guides in RST and Relationship Graphs
 [base_multi_image](base_multi_image/) | 8.0.2.0.0 | Allow multiple images for database objects
@@ -83,6 +85,7 @@ addon | version | summary
 [users_ldap_populate](users_ldap_populate/) | 8.0.1.2.0 | LDAP Populate
 [users_ldap_push](users_ldap_push/) | 8.0.1.0.0 | Creates a ldap entry when you create a user in Odoo
 [web_context_tunnel](web_context_tunnel/) | 8.0.2.0.0 | Web Context Tunnel
+
 
 Unported addons
 ---------------
