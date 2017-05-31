@@ -1,49 +1,52 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* mass_editing
-#
+# * mass_editing
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 7.0\n"
+"Project-Id-Version: server-tools (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-07 11:35+0100\n"
-"PO-Revision-Date: 2016-03-07 11:42+0100\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: da\n"
+"POT-Creation-Date: 2016-11-28 21:29+0000\n"
+"PO-Revision-Date: 2015-09-18 13:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Danish (http://www.transifex.com/oca/OCA-server-tools-8-0/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
 
 #. module: mass_editing
 #: view:mass.object:mass_editing.view_mass_object_form
 msgid "Add"
-msgstr "Tilføj"
+msgstr ""
 
 #. module: mass_editing
 #: view:mass.object:mass_editing.view_mass_object_form
 msgid "Advanced"
-msgstr "Avanceret"
+msgstr ""
 
 #. module: mass_editing
-#: field:mass.editing.wizard,create_uid:0 
-#:field:mass.object,create_uid:0
+#: field:mass.editing.wizard,create_uid:0 field:mass.object,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Oprettet af"
 
 #. module: mass_editing
-#: field:mass.editing.wizard,create_date:0 
-#: field:mass.object,create_date:0
+#: field:mass.editing.wizard,create_date:0 field:mass.object,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Oprettet den"
 
 #. module: mass_editing
 #: code:addons/mass_editing/models/mass_object.py:126
 #, python-format
 msgid "Deletion of the action record failed."
-msgstr "Sletning af aktion rekord fejlede"
+msgstr ""
+
+#. module: mass_editing
+#: field:mass.editing.wizard,display_name:0 field:mass.object,display_name:0
+msgid "Display Name"
+msgstr "Vist navn"
 
 #. module: mass_editing
 #: view:mass.object:mass_editing.view_mass_object_form
@@ -57,38 +60,40 @@ msgstr ""
 #: view:mass.object:mass_editing.view_mass_object_form
 #: field:mass.object,field_ids:0
 msgid "Fields"
-msgstr "Felter"
+msgstr ""
 
 #. module: mass_editing
-#: field:mass.editing.wizard,id:0 
-#: field:mass.object,id:0
+#: field:mass.editing.wizard,id:0 field:mass.object,id:0
 msgid "ID"
-msgstr ""
+msgstr "Id"
 
 #. module: mass_editing
-#: field:mass.editing.wizard,write_uid:0 
-#: field:mass.object,write_uid:0
+#: field:mass.editing.wizard,__last_update:0 field:mass.object,__last_update:0
+msgid "Last Modified on"
+msgstr "Sidst ændret den"
+
+#. module: mass_editing
+#: field:mass.editing.wizard,write_uid:0 field:mass.object,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Sidst opdateret af"
 
 #. module: mass_editing
-#: field:mass.editing.wizard,write_date:0 
-#: field:mass.object,write_date:0
+#: field:mass.editing.wizard,write_date:0 field:mass.object,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Sidst opdateret den"
 
 #. module: mass_editing
 #: model:ir.actions.act_window,name:mass_editing.action_mass_object_form
 #: model:ir.ui.menu,name:mass_editing.menu_mass_editing
 #: model:ir.ui.menu,name:mass_editing.menu_mass_object_view
 msgid "Mass Editing"
-msgstr "Masse redigering"
+msgstr ""
 
 #. module: mass_editing
 #: code:addons/mass_editing/models/mass_object.py:74
 #, python-format
 msgid "Mass Editing (%s)"
-msgstr "Masse redigering (%s)"
+msgstr ""
 
 #. module: mass_editing
 #: field:mass.object,model_id:0
@@ -110,18 +115,18 @@ msgstr "Navn"
 #: sql_constraint:mass.object:0
 #, python-format
 msgid "Name must be unique!"
-msgstr "Navnet skal være entydigt!"
+msgstr ""
 
 #. module: mass_editing
 #: view:mass.object:mass_editing.view_mass_object_form
 #: view:mass.object:mass_editing.view_mass_object_tree
 msgid "Object"
-msgstr "Objekt"
+msgstr ""
 
 #. module: mass_editing
 #: view:mass.object:mass_editing.view_mass_object_form
 msgid "Remove"
-msgstr "Fjern"
+msgstr ""
 
 #. module: mass_editing
 #: view:mass.object:mass_editing.view_mass_object_form
@@ -155,10 +160,4 @@ msgstr ""
 #: code:addons/mass_editing/models/mass_object.py:125
 #, python-format
 msgid "Warning"
-msgstr "Advarsel"
-
-#~ msgid "Remove sidebar button"
-#~ msgstr "Fjern fra 'Flere' menuen"
-
-#~ msgid "Add sidebar button"
-#~ msgstr "Tilføj i 'Flere' menuen"
+msgstr ""

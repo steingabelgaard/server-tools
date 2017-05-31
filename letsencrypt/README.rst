@@ -22,6 +22,24 @@ the SSL version.
 After installation, trigger the cronjob `Update letsencrypt certificates` and
 watch your log for messages.
 
+This addon depends on the ``openssl`` binary and the ``acme_tiny`` and ``IPy``
+python modules. If you use https in your nginx or apache configuration,
+openssl should already be installed.
+
+If you still need to install the OpenSSL binary you can use your distro
+package manager. For Debian and Ubuntu, that would be:
+
+    sudo apt-get install openssl
+
+For installing the ACME-Tiny python module, use the PIP package manager:
+
+    sudo pip install acme-tiny
+
+For installing the IPy python module, use the PIP package manager:
+
+    sudo pip install IPy
+
+
 Configuration
 =============
 
@@ -71,7 +89,22 @@ You'll also need a matching sudo configuration, like::
 
     your_odoo_user ALL = NOPASSWD: /usr/sbin/service nginx reload
 
-Further, if you force users to https, you'll need something like for nginx::
+The line above can be added to /etc/sudoers through the visudo command.
+
+If your distribution supports it, like Debian does, you can create and edit
+an automatically included file through
+``visudo -f /etc/sudoers.d/letsencrypt``. This will also put the right
+authorities on the file (-r--r-----).
+
+The server that provides the certificates will try to check that you actually
+control the host that you request a certificate for. It will do this by
+requesting through http a file from an uri that contains
+``/.well-known/acme-challenge/xxx``. The letsencrypt module provides a
+controller that will provide this uri from the Odoo server, but we have to
+configure the frontend nginx or apache server to accept http for these uri's.
+
+Therefore, if you force users to https, you'll need something like this
+for nginx::
 
     if ($scheme = "http") {
         set $redirect_https 1;
@@ -97,6 +130,13 @@ an upstream for your odoo instance and do something like::
         proxy_pass    http://yourodooupstream;
     }
 
+If you're using a multi-database installation (with or without dbfilter option)
+where /web/databse/selector returns a list of more than one database, then
+you need to add ``letsencrypt`` addon to serverwide load addons list
+(by default, only ``web`` addon), setting ``--load`` option.
+For example, ``--load=web,letsencrypt``
+
+
 Bug Tracker
 ===========
 
@@ -112,6 +152,8 @@ Contributors
 ------------
 
 * Holger Brunn <hbrunn@therp.nl>
+* Antonio Espinosa <antonio.espinosa@tecnativa.com>
+* Ronald Portier <ronald@therp.nl>
 
 ACME implementation
 -------------------
