@@ -23,6 +23,7 @@
 from openerp.osv import orm
 import openerp.tools as tools
 from lxml import etree
+from openerp.tools.translate import _
 
 
 class MassEditingWizard(orm.TransientModel):
@@ -54,8 +55,8 @@ class MassEditingWizard(orm.TransientModel):
                         'type': 'selection',
                         'string': field_info[field.name]['string'],
                         'selection': [
-                            ('set', 'Set'), ('remove_m2m', 'Remove'),
-                            ('add', 'Add')]}
+                            ('set', _('Set')), ('remove_m2m', _('Remove')),
+                            ('add', _('Add'))]}
                     xml_group = etree.SubElement(xml_group, 'group', {
                         'colspan': '4'})
                     etree.SubElement(xml_group, 'separator', {
@@ -73,7 +74,7 @@ class MassEditingWizard(orm.TransientModel):
                     all_fields["selection__" + field.name] = {
                         'type': 'selection',
                         'string': field_info[field.name]['string'],
-                        'selection': [('set', 'Set'), ('remove', 'Remove')]}
+                        'selection': [('set', _('Set')), ('remove', _('Remove'))]}
                     all_fields[field.name] = {
                         'type': field.ttype, 'string': field.field_description,
                         'relation': field.relation}
@@ -88,7 +89,7 @@ class MassEditingWizard(orm.TransientModel):
                     all_fields["selection__" + field.name] = {
                         'type': 'selection',
                         'string': field_info[field.name]['string'],
-                        'selection': [('set', 'Set'), ('remove', 'Remove')]}
+                        'selection': [('set', _('Set')), ('remove', _('Remove'))]}
                     all_fields[field.name] = {
                         'type': field.ttype, 'string': field.field_description,
                         'relation': field.relation}
@@ -105,7 +106,7 @@ class MassEditingWizard(orm.TransientModel):
                     all_fields["selection__" + field.name] = {
                         'type': 'selection',
                         'string': field_info[field.name]['string'],
-                        'selection': [('set', 'Set'), ('remove', 'Remove')]}
+                        'selection': [('set', _('Set')), ('remove', _('Remove'))]}
                     all_fields[field.name] = {
                         'type': field.ttype, 'string': field.field_description,
                         'size': field.size or 256}
@@ -123,7 +124,7 @@ class MassEditingWizard(orm.TransientModel):
                     all_fields["selection__" + field.name] = {
                         'type': 'selection',
                         'string': field_info[field.name]['string'],
-                        'selection': [('set', 'Set'), ('remove', 'Remove')]}
+                        'selection': [('set', _('Set')), ('remove', _('Remove'))]}
                     etree.SubElement(xml_group, 'field', {
                         'name': "selection__" + field.name, 'colspan': '2'})
                     etree.SubElement(xml_group, 'field', {
@@ -141,7 +142,7 @@ class MassEditingWizard(orm.TransientModel):
                     all_fields["selection__" + field.name] = {
                         'type': 'selection',
                         'string': field_info[field.name]['string'],
-                        'selection': [('set', 'Set'), ('remove', 'Remove')]}
+                        'selection': [('set', _('Set')), ('remove', _('Remove'))]}
                     if field.ttype == 'text':
                         xml_group = etree.SubElement(xml_group, 'group', {
                             'colspan': '6'})
@@ -161,7 +162,7 @@ class MassEditingWizard(orm.TransientModel):
                             'type': 'selection',
                             'string': field_info[field.name]['string'],
                             'selection': [(
-                                'set', 'Set'), ('remove', 'Remove')]}
+                                'set', _('Set')), ('remove', _('Remove'))]}
                         etree.SubElement(xml_group, 'field', {
                             'name': "selection__" + field.name,
                             'colspan': '2', })
@@ -175,15 +176,29 @@ class MassEditingWizard(orm.TransientModel):
                 xml_form, 'separator', {'string': '', 'colspan': '4'})
             xml_group3 = etree.SubElement(xml_form, 'footer', {})
             etree.SubElement(xml_group3, 'button', {
-                'string': 'Apply', 'icon': "gtk-execute",
+                'string': _('Apply'), 'icon': "gtk-execute",
                 'type': 'object', 'name': "action_apply",
                 'class': "oe_highlight"})
             etree.SubElement(xml_group3, 'button', {
-                'string': 'Close', 'icon': "gtk-close", 'special': 'cancel'})
+                'string': _('Close'), 'icon': "gtk-close", 'special': 'cancel'})
             root = xml_form.getroottree()
             result['arch'] = etree.tostring(root)
             result['fields'] = all_fields
         return result
+
+    def read(self, cr, uid, ids, fields, context=None):
+        """ Without this call, dynamic fields defined in fields_view_get()
+            generate a log warning, i.e.:
+
+            openerp.models: mass.editing.wizard.read()
+                with unknown field 'myfield'
+            openerp.models: mass.editing.wizard.read()
+                with unknown field 'selection__myfield'
+        """
+        # We remove fields which are not in _columns
+        real_fields = [x for x in fields if x in self._columns]
+        return super(MassEditingWizard, self).read(
+            cr, uid, ids, real_fields, context=context)
 
     def create(self, cr, uid, vals, context=None):
         if context.get('active_model') and context.get('active_ids'):

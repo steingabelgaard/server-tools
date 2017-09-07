@@ -34,7 +34,7 @@ class ModelExtended(models.Model):
                     if len(cond) == 3 and cond[1] == 'ilike':
                         args[i] = cond[0], cond[1], cond[2].replace(' ', '%')
                         #_logger.info("New search: %s", args[i])
-                return new_search.origin(self, cr, user, args, offset, limit=limit,
+                return new_search.origin(self, cr, user, args, offset=offset, limit=limit,
                                          order=order, context=context, count=count)
             return new_search
 
