@@ -187,9 +187,9 @@ class IrExportsLine(models.Model):
         field = self.env["ir.model.fields"].search(
             [("name", "=", name),
              ("model_id", "=", model.id)])
-        if not field.exists():
-            raise exceptions.ValidationError(
-                _("Field '%s' not found in model '%s'") % (name, model.model))
+        #if not field.exists():
+        #    raise exceptions.ValidationError(
+        #        _("Field '%s' not found in model '%s'") % (name, model.model))
         return field
 
     @api.multi
