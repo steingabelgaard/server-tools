@@ -153,9 +153,9 @@ class IrExportsLine(models.Model):
     @api.constrains("field1_id", "field2_id", "field3_id", "field4_id")
     def _check_name(self):
         for one in self:
-            if not one.label:
-                raise exceptions.ValidationError(
-                    _("Field '%s' does not exist") % one.name)
+            #if not one.label:
+            #    raise exceptions.ValidationError(
+            #        _("Field '%s' does not exist") % one.name)
             if not one.env.context.get('skip_check'):
                 lines = one.search([('export_id', '=', one.export_id.id),
                                     ('name', '=', one.name)])
@@ -187,9 +187,9 @@ class IrExportsLine(models.Model):
         field = self.env["ir.model.fields"].search(
             [("name", "=", name),
              ("model_id", "=", model.id)])
-        if not field.exists():
-            raise exceptions.ValidationError(
-                _("Field '%s' not found in model '%s'") % (name, model.model))
+        #if not field.exists():
+        #    raise exceptions.ValidationError(
+        #        _("Field '%s' not found in model '%s'") % (name, model.model))
         return field
 
     @api.multi
