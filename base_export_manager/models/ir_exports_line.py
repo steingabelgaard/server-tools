@@ -70,6 +70,7 @@ class IrExportsLine(models.Model):
         for one in self:
             name = "/".join((one.field_n(num).name for num in range(1, 5)
                              if one.field_n(num)))
+            _logger.info('XP: New:[%s] Was: %s', name, one.name)
             if name != one.name and name > '':
                 one.name = name
 
@@ -130,9 +131,11 @@ class IrExportsLine(models.Model):
     @api.multi
     def _inverse_name(self):
         """Get the fields from the name."""
+        _logger.info('XP: INVERSE NAME')
         for one in self:
             # Field names can have up to only 4 indentation levels
             parts = one.name.split("/")
+            _logger.info('XP: PARTS: %s', parts)
             if len(parts) > 4:
                 # Silently return - To allow more than 4 levels
                 return
@@ -146,6 +149,9 @@ class IrExportsLine(models.Model):
                     continue
                 field_name = parts[num - 1]
                 model = one.model_n(num)
+                if not model:
+                    return
+                _logger.info('XP: FIELD: %s MODEL: %s', field_name, model)
                 # You could get to failing constraint while populating the
                 # fields, so we skip the uniqueness check and manually check
                 # the full constraint after the loop
@@ -156,6 +162,7 @@ class IrExportsLine(models.Model):
                 field_id = one._get_field_id(model, field_name)
                 if one[one.field_n(num, True)] != field_id:
                     one[one.field_n(num, True)] = field_id
+                _logger.info('XP: FIELD1: %s', one.field1_id)
             one._check_name()
 
     @api.multi
@@ -175,6 +182,7 @@ class IrExportsLine(models.Model):
     @api.multi
     @api.onchange('name')
     def _onchange_name(self):
+        _logger.info('XP: ON CHANGE NAME: %s, %s', self, self.name)
         if self.name:
             self._inverse_name()
         else:
@@ -224,8 +232,10 @@ class IrExportsLine(models.Model):
         :param bool only_name:
             Return only the model name, or return its value.
         """
-        _logger.info('XP: Model n %d', n)
+        _logger.info('XP: Model n %d cx: %s', n, self.env.context)
         name = "model%d_id" % n
-        if n == 1 and not only_name and not self[name]:
-            return self.export_id.model_id
+        #if n == 1 and not only_name and not self[name]:
+        #    _logger.info('XP: Return model: %s - %s', self.export_id.model_id, self.env.context.get("default_model1_id", False))
+        #    return self.export_id.model_id if self.export_id.model_id else self.env.context.get("default_model1_id", False)  
+        _logger.info('XP: Model n return %s', name if only_name else self[name])
         return name if only_name else self[name]
