@@ -236,6 +236,6 @@ class IrExportsLine(models.Model):
         name = "model%d_id" % n
         if n == 1 and not only_name and not self[name]:
             _logger.info('XP: Return model: %s', self.export_id.model_id)
-            return self.self.export_id.model_id
+            return self.export_id.model_id
         _logger.info('XP: Model n return %s', name if only_name else self[name])
         return name if only_name else self[name]
