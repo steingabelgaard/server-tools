@@ -1,6 +1,8 @@
+  pstats_print2list
   python-ldap
   unidecode
   validate_email
   pysftp
   acme_tiny
   IPy
+  python-json-logger
