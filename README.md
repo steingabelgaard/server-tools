@@ -37,6 +37,7 @@ addon | version | summary
 [base_import_match](base_import_match/) | 8.0.1.0.1 | Try to avoid duplicates before importing
 [base_import_security_group](base_import_security_group/) | 8.0.1.0.0 | Group-based permissions for importing CSV files
 [base_ir_filters_active](base_ir_filters_active/) | 8.0.1.0.0 | Allows you to disable (hide) filters
+[base_manifest_extension](base_manifest_extension/) | 8.0.1.0.0 | Adds some useful keys to manifest files
 [base_module_doc_rst](base_module_doc_rst/) | 8.0.1.0.0 | Modules Technical Guides in RST and Relationship Graphs
 [base_multi_image](base_multi_image/) | 8.0.2.0.0 | Allow multiple images for database objects
 [base_name_search_improved](base_name_search_improved/) | 8.0.1.0.1 | Friendlier search when typing in relation fields
@@ -58,7 +59,7 @@ addon | version | summary
 [fetchmail_attach_from_folder](fetchmail_attach_from_folder/) | 8.0.1.0.1 | Attach mails in an IMAP folder to existing objects
 [fetchmail_notify_error_to_sender](fetchmail_notify_error_to_sender/) | 8.0.1.0.1 | If fetching mails gives error, send an email to sender
 [field_char_transformed](field_char_transformed/) | 8.0.1.0.0 | Allows to transform input in character fields before writing or reading it to/from the database
-[field_rrule](field_rrule/) | 8.0.1.0.0 | Provides a field and widget for RRules according to RFC 2445
+[field_rrule](field_rrule/) | 8.0.1.0.1 | Provides a field and widget for RRules according to RFC 2445
 [html_image_url_extractor](html_image_url_extractor/) | 8.0.1.0.0 | Extract images found in any HTML field
 [html_text](html_text/) | 8.0.1.0.0 | Generate excerpts from any HTML field
 [import_odbc](import_odbc/) | 8.0.0.1.3 | Import data from SQL and ODBC data sources.
@@ -66,10 +67,13 @@ addon | version | summary
 [language_path_mixin](language_path_mixin/) | 8.0.1.0.0 | Setting the partner's language in RML reports
 [letsencrypt](letsencrypt/) | 8.0.1.0.0 | Request SSL certificates from letsencrypt.org
 [log_forwarded_for_ip](log_forwarded_for_ip/) | 8.0.1.0.0 | Displays source IPs in log when behind a reverse proxy
+[logging_json](logging_json/) | 8.0.1.0.0 | JSON Logging
 [mail_environment](mail_environment/) | 8.0.0.1.0 | Server env config for mail + fetchmail
 [mass_editing](mass_editing/) | 8.0.1.3.0 | Mass Editing
 [module_prototyper](module_prototyper/) | 8.0.0.3.0 | Prototype your module.
+[module_uninstall_check](module_uninstall_check/) | 8.0.1.0.0 | Add Extra Checks before uninstallation of modules
 [password_security](password_security/) | 8.0.1.0.0 | Allow admin to set password security requirements.
+[profiler](profiler/) | 8.0.1.0.0 | profiler
 [qweb_usertime](qweb_usertime/) | 8.0.1.0.0 | Add user time rendering support in QWeb
 [save_translation_file](save_translation_file/) | 8.0.1.0.0 | Allows developpers to easily generate i18n files
 [scheduler_error_mailer](scheduler_error_mailer/) | 8.0.1.0.0 | Send an e-mail when a scheduler fails
@@ -82,7 +86,7 @@ addon | version | summary
 [super_calendar](super_calendar/) | 8.0.0.2.0 | This module allows to create configurable calendars.
 [users_ldap_groups](users_ldap_groups/) | 8.0.1.2.1 | Adds user accounts to groups based on rules defined by the administrator.
 [users_ldap_mail](users_ldap_mail/) | 8.0.1.0.0 | LDAP mapping for user name and e-mail
-[users_ldap_populate](users_ldap_populate/) | 8.0.1.2.0 | LDAP Populate
+[users_ldap_populate](users_ldap_populate/) | 8.0.1.2.0 | Create users from LDAP before they log in
 [users_ldap_push](users_ldap_push/) | 8.0.1.0.0 | Creates a ldap entry when you create a user in Odoo
 [web_context_tunnel](web_context_tunnel/) | 8.0.2.0.0 | Web Context Tunnel
 
