@@ -7,7 +7,7 @@ import logging
 
 from odoo import _, api, models
 from odoo.osv import expression
-
+from odoo.tools import ustr
 
 _logger = logging.getLogger(__name__)
 
@@ -41,7 +41,7 @@ def patch_leaf_trgm(method):
                 ))
 
             if left in model._fields:
-                params = str(right)
+                params = ustr(right)
 
             if isinstance(params, basestring):
                 params = [params]
