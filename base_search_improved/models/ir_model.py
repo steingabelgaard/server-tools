@@ -31,7 +31,7 @@ class ModelExtended(models.Model):
                 #_logger.info("New search")
                 for i, cond in enumerate(args):
                     # fuzzy search: replace spaces with wildcards
-                    if len(cond) == 3 and cond[1] == 'ilike':
+                    if len(cond) == 3 and cond[1] == 'ilike' and isinstance(cond[2], basestring):
                         args[i] = cond[0], cond[1], cond[2].replace(' ', '%')
                         #_logger.info("New search: %s", args[i])
                 return new_search.origin(self, cr, user, args, offset=offset, limit=limit,
