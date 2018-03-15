@@ -94,6 +94,9 @@ class ResUsers(models.Model):
     @api.multi
     def _password_has_expired(self):
         self.ensure_one()
+        # Set password expiration days to 0 to disable check
+        if not self.company_id.password_expiration:
+            return False
         if not self.password_write_date:
             return True
         write_date = fields.Datetime.from_string(self.password_write_date)
@@ -139,7 +142,9 @@ class ResUsers(models.Model):
         crypt = self._crypt_context()
         for rec_id in self:
             recent_passes = rec_id.company_id.password_history
-            if recent_passes < 0:
+            if recent_passes == 0:
+                continue
+            elif recent_passes < 0:
                 recent_passes = rec_id.password_history_ids
             else:
                 recent_passes = rec_id.password_history_ids[
