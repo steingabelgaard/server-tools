@@ -11,9 +11,17 @@ from openerp import fields
 from openerp.service import wsgi_server
 from openerp.tests.common import TransactionCase
 #  from openerp.tools.misc import consteq
+import passlib.utils
 
 _logger = logging.getLogger(__name__)
 
+
+def _consteq(str1, str2):
+    """ Constant-time string comparison. Suitable to compare bytestrings of fixed,
+        known length only, because length difference is optimized. """
+    return len(str1) == len(str2) and sum(ord(x)^ord(y) for x, y in zip(str1, str2)) == 0
+
+consteq = getattr(passlib.utils, 'consteq', _consteq)
 
 class OAuthProviderControllerTransactionCase(TransactionCase):
     def setUp(self, application_type):
@@ -103,7 +111,7 @@ class OAuthProviderControllerTransactionCase(TransactionCase):
         user = self.logged_user or self.env.ref('base.public_user')
         request_env.return_value = self.env(user=user)
         # Disable CSRF tokens check during tests
-        # validate_csrf.return_value = consteq('', '')
+        validate_csrf.return_value = consteq('', '')
 
         return self.test_client.post(
             uri, data=data, environ_base=self.werkzeug_environ,
