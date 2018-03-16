@@ -3,7 +3,7 @@
     Copyright 2016 SYLEAM
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 -->
-<odoo>
+<openerp><data>
     <template id="oauth_provider.authorization" name="OAuth Authorization Error">
         <t t-set="disable_footer" t-value="True"/>
         <t t-call="web.login_layout">
@@ -36,4 +36,4 @@
             </div>
         </t>
     </template>
-</odoo>
+</data></openerp>
