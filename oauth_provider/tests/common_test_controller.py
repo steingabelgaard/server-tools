@@ -10,7 +10,7 @@ from werkzeug.wrappers import BaseResponse
 from openerp import fields
 from openerp.service import wsgi_server
 from openerp.tests.common import TransactionCase
-from openerp.tools.misc import consteq
+#  from openerp.tools.misc import consteq
 
 _logger = logging.getLogger(__name__)
 
