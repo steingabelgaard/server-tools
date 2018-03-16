@@ -103,7 +103,7 @@ class OAuthProviderControllerTransactionCase(TransactionCase):
         user = self.logged_user or self.env.ref('base.public_user')
         request_env.return_value = self.env(user=user)
         # Disable CSRF tokens check during tests
-        validate_csrf.return_value = consteq('', '')
+        # validate_csrf.return_value = consteq('', '')
 
         return self.test_client.post(
             uri, data=data, environ_base=self.werkzeug_environ,
