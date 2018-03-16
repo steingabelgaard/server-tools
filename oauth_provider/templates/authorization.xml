@@ -8,7 +8,7 @@
         <t t-set="disable_footer" t-value="True"/>
         <t t-call="web.login_layout">
             <form class="oe_login_form" role="form" method="post" action="/oauth2/authorize">
-                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                
                 <div>
                     <h3 t-esc="oauth_client"/>
                     This application would like to access these resources :
