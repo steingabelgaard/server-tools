@@ -105,7 +105,7 @@ class OAuthProviderControllerTransactionCase(TransactionCase):
     @mock.patch('openerp.http.WebRequest.env', new_callable=mock.PropertyMock)
     #@mock.patch('openerp.http.WebRequest.validate_csrf')
     def post_request(
-            self, uri, validate_csrf, request_env, data=None, headers=None):
+            self, uri, request_env, data=None, headers=None):
         """ Execute a POST request on the test client """
         # Mock the http request's environ to allow it to see test records
         user = self.logged_user or self.env.ref('base.public_user')
