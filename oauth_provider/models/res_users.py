@@ -4,7 +4,6 @@
 
 import uuid
 from openerp import models, fields
-from pip._vendor.requests.packages.urllib3 import response
 
 
 class ResUsers(models.Model):
