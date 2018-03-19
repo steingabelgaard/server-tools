@@ -244,6 +244,8 @@ class OdooValidator(RequestValidator):
     def validate_scopes(
             self, client_id, scopes, client, request, *args, **kwargs):
         """ Ensure the client is allowed to access all requested scopes """
+        _logger.info('VAL SCOPES: %s, %s', scopes, set(request.client.mapped('scope_ids.code')))
+        #scopes=scopes[0].split(',')
         return request.client.identifier == client_id and set(scopes).issubset(
             set(request.client.mapped('scope_ids.code')))
 

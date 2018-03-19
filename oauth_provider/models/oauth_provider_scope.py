@@ -9,6 +9,9 @@ from collections import defaultdict
 from openerp import models, api, fields
 from openerp.tools.safe_eval import safe_eval
 
+import logging
+_logger = logging.getLogger(__name__)
+
 
 class OAuthProviderScope(models.Model):
     _name = 'oauth.provider.scope'
@@ -56,6 +59,7 @@ class OAuthProviderScope(models.Model):
     @api.multi
     def get_data_for_model(self, model, res_id=None, all_scopes_match=False):
         """ Return the data matching the scopes from the requested model """
+        _logger.info('GET DATA %s %s %s', model, res_id, self)
         data = defaultdict(dict)
         eval_context = self._get_ir_filter_eval_context()
         all_scopes_records = self.env[model]
@@ -71,6 +75,7 @@ class OAuthProviderScope(models.Model):
             # Retrieve data of the matching records, depending on the scope's
             # fields
             records = self.env[model].search(filter_domain)
+            _logger.info('DATA %s %s', filter_domain, records)
             for record_data in records.read(scope.field_ids.mapped('name')):
                 for field, value in record_data.items():
                     if isinstance(value, tuple):
@@ -78,6 +83,7 @@ class OAuthProviderScope(models.Model):
                         data[record_data['id']][field] = value[1]
                     else:
                         data[record_data['id']][field] = value
+                    _logger.info('DATA %s %s', field, value)
 
             # Keep a list of records that match all scopes
             if not all_scopes_records:

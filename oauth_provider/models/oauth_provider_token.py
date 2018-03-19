@@ -4,6 +4,9 @@
 
 from openerp import models, api, fields, exceptions, _
 
+import logging
+_logger = logging.getLogger(__name__)
+
 
 class OAuthProviderToken(models.Model):
     _name = 'oauth.provider.token'
@@ -93,7 +96,7 @@ class OAuthProviderToken(models.Model):
         allowed by all token's scopes
         """
         self.ensure_one()
-
+        _logger.info('TOKEN GET DATA %s %s', model, res_id)
         # Retrieve records allowed from all scopes
         return self.sudo(user=self.user_id).scope_ids.get_data_for_model(
             model, res_id=res_id, all_scopes_match=all_scopes_match)
