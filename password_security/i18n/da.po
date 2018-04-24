@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-22 15:03+0000\n"
-"PO-Revision-Date: 2018-04-22 15:03+0000\n"
+"POT-Creation-Date: 2018-04-24 08:30+0000\n"
+"PO-Revision-Date: 2018-04-24 08:30+0000\n"
 "Last-Translator: Hans Henrik Gabelgaard <hhg@gabelgaard.org>, 2018\n"
 "Language-Team: Danish (https://www.transifex.com/oca/teams/23907/da/)\n"
 "MIME-Version: 1.0\n"
@@ -33,12 +33,12 @@ msgstr "Kan ikke anvende de seneste %d passwords"
 #. module: password_security
 #: model:ir.model.fields,field_description:password_security.field_res_company_password_length
 msgid "Characters"
-msgstr ""
+msgstr "Tegn"
 
 #. module: password_security
 #: model:ir.model,name:password_security.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Virksomheder"
 
 #. module: password_security
 #: model:ir.model.fields,field_description:password_security.field_res_users_pass_history_create_uid
@@ -66,6 +66,8 @@ msgid ""
 "Disallow reuse of this many previous passwords - use negative number for "
 "infinite, or 0 to disable"
 msgstr ""
+"Forbyd genbrug af dette antal forrige password - Abfør et negativt antal for"
+" uendeligt, eller 0 for at slå chekcet fra"
 
 #. module: password_security
 #: model:ir.model.fields,field_description:password_security.field_res_users_pass_history_display_name
@@ -120,7 +122,7 @@ msgstr "Seneste password opdatering"
 #. module: password_security
 #: model:ir.model.fields,field_description:password_security.field_res_company_password_lower
 msgid "Lowercase"
-msgstr "små tegn"
+msgstr "Små bogstaver"
 
 #. module: password_security
 #: code:addons/password_security/models/res_users.py:52
@@ -214,7 +216,7 @@ msgstr ""
 #. module: password_security
 #: model:ir.model.fields,field_description:password_security.field_res_company_password_special
 msgid "Special"
-msgstr ""
+msgstr "Special"
 
 #. module: password_security
 #: code:addons/password_security/models/res_users.py:58
@@ -225,12 +227,12 @@ msgstr "Special tegn"
 #. module: password_security
 #: model:ir.ui.view,arch_db:password_security.view_company_form
 msgid "Timings"
-msgstr ""
+msgstr "Tidskrav"
 
 #. module: password_security
 #: model:ir.model.fields,field_description:password_security.field_res_company_password_upper
 msgid "Uppercase"
-msgstr ""
+msgstr "Store bogstaver"
 
 #. module: password_security
 #: code:addons/password_security/models/res_users.py:54
@@ -241,7 +243,7 @@ msgstr "Store bogstaver"
 #. module: password_security
 #: model:ir.model.fields,field_description:password_security.field_res_users_pass_history_user_id
 msgid "User"
-msgstr ""
+msgstr "Bruger"
 
 #. module: password_security
 #: model:ir.model,name:password_security.model_res_users
