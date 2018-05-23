@@ -186,6 +186,7 @@ class OAuth2ProviderController(http.Controller):
             ])
         if existing_code:
             credentials['odoo_user_id'] = existing_code.user_id.id
+            credentials['scope'] = ' '.join(existing_code.scope_ids.mapped('code'))
         # Retrieve the existing token, if any, to get Odoo's user id
         existing_token = http.request.env['oauth.provider.token'].search([
             ('client_id.identifier', '=', client_id),
@@ -241,7 +242,7 @@ class OAuth2ProviderController(http.Controller):
         if not token:
             return self._json_response(
                 data={'error': 'invalid_or_expired_token'}, status=401)
-        _logger.info('DATA 0: %s', token.user_id.name)
+        _logger.info('DATA 0: %s %s', token.user_id.name, token.scope_ids)
 
         data = token.get_data_for_model('res.users', res_id=token.user_id.id)
         _logger.info('DATA 1: %s', data)
