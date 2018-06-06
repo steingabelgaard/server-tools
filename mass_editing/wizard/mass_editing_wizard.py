@@ -61,8 +61,6 @@ class MassEditingWizard(orm.TransientModel):
                         'selection': [
                             ('add', s_add), ('set', s_set),
                             ('remove_m2m', s_remove)]}
-                            ('add', s_add), ('set', s_set),
-                            ('remove_m2m', s_remove)]}
                     xml_group = etree.SubElement(xml_group, 'group', {
                         'colspan': '4'})
                     etree.SubElement(xml_group, 'separator', {
