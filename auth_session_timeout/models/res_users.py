@@ -60,6 +60,11 @@ class ResUsers(models.Model):
         if not http.request:
             return
 
+        # Avoid endless redirects on login page
+        # Implementing fix from https://github.com/OCA/server-auth/issues/33
+        if http.request.httprequest.path == "/web/login":
+            return
+
         session = http.request.session
 
         # Calculate deadline
