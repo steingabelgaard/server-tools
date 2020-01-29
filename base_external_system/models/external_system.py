@@ -4,9 +4,9 @@
 
 from contextlib import contextmanager
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
-
+from openerp import api, fields, models, _
+from openerp.exceptions import ValidationError
+from .external_system_adapter import ExternalSystemAdapter
 
 class ExternalSystem(models.Model):
 
@@ -78,8 +78,11 @@ class ExternalSystem(models.Model):
     def _get_system_types(self):
         """Return the adapter interface models that are installed."""
         adapter = self.env['external.system.adapter']
+        
         return [
-            (m, self.env[m]._description) for m in adapter._inherit_children
+            (m, self.env[m]._description) for m in self.env.registry
+            if self.env[m]._name != adapter._name and
+            issubclass(self.env[m].__class__, ExternalSystemAdapter)
         ]
 
     @api.multi

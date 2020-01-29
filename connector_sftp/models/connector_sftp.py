@@ -7,8 +7,8 @@ import logging
 from contextlib import contextmanager
 from io import StringIO
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from openerp import api, fields, models, _
+from openerp.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 

@@ -4,8 +4,8 @@
 
 from contextlib import contextmanager
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from openerp import api, fields, models, _
+from openerp.exceptions import Warning as UserError
 
 
 class ExternalSystemAdapter(models.AbstractModel):

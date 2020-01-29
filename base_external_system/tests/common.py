@@ -5,7 +5,7 @@
 from contextlib import contextmanager
 from mock import MagicMock
 
-from odoo.tests.common import HttpCase
+from openerp.tests.common import HttpCase
 
 
 class Common(HttpCase):

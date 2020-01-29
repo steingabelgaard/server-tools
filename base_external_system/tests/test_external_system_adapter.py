@@ -2,7 +2,7 @@
 # Copyright 2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo.exceptions import UserError
+from openerp.exceptions import Warning as UserError
 
 from .common import Common
 

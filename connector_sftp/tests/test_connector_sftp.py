@@ -2,11 +2,11 @@
 # Copyright 2016-2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
-from odoo.tests.common import TransactionCase
+from openerp.tests.common import TransactionCase
 import mock
 
 
-paramiko = 'odoo.addons.connector_sftp.models.connector_sftp.paramiko'
+paramiko = 'openerp.addons.connector_sftp.models.connector_sftp.paramiko'
 
 
 class TestConnectorSftp(TransactionCase):

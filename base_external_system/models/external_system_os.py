@@ -4,7 +4,7 @@
 
 import os
 
-from odoo import api, models
+from openerp import api, models
 
 
 class ExternalSystemOs(models.Model):
