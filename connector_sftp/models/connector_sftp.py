@@ -106,7 +106,6 @@ class ConnectorSftp(models.Model):
             return client.stat(path)
 
     @api.multi
-    @contextmanager
     def open(self, file_name, mode='r', buff_size=-1):
         """Open file on remote server. Mimicks python open function, and result
         can be used as a context manager.
@@ -123,8 +122,8 @@ class ConnectorSftp(models.Model):
             IOError: if the file cannot be opened
         """
         with self.client() as client:
-            with client.open(file_name, mode, buff_size) as fh:
-                yield fh
+            return client.open(file_name, mode, buff_size)
+                
 
     @api.multi
     def delete(self, path):
