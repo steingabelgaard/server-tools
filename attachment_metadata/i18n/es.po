@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * attachment_metadata
-# 
+#
 # Translators:
 # Gelo Joga Landoo <gj@landoo.es>, 2017
 msgid ""
@@ -11,11 +11,12 @@ msgstr ""
 "POT-Creation-Date: 2017-02-21 21:56+0000\n"
 "PO-Revision-Date: 2017-02-24 11:56+0000\n"
 "Last-Translator: Gelo Joga Landoo <gj@landoo.es>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/OCA-server-tools-8-0/language/es/)\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/OCA-server-tools-8-0/"
+"language/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: attachment_metadata
@@ -27,6 +28,13 @@ msgstr "Adjunto"
 #: field:ir.attachment.metadata,name:0
 msgid "Attachment Name"
 msgstr "Nombre del adjunto"
+
+#. module: attachment_metadata
+#: field:ir.attachment.metadata,website_url:0
+#, fuzzy
+#| msgid "Attachment"
+msgid "Attachment URL"
+msgstr "Adjunto"
 
 #. module: attachment_metadata
 #: field:ir.attachment.metadata,attachment_id:0
@@ -76,6 +84,11 @@ msgid "Database Data"
 msgstr "Fecha de la base de datos"
 
 #. module: attachment_metadata
+#: field:ir.attachment.metadata,datas_checksum:0
+msgid "Datas checksum"
+msgstr ""
+
+#. module: attachment_metadata
 #: field:ir.attachment.metadata,description:0
 msgid "Description"
 msgstr "Descripción"
@@ -106,18 +119,24 @@ msgid "File Size"
 msgstr "Tamaño del archivo"
 
 #. module: attachment_metadata
+#: field:ir.attachment.metadata,file_type_icon:0
+msgid "File Type Icon"
+msgstr ""
+
+#. module: attachment_metadata
 #: code:addons/attachment_metadata/models/attachment.py:43
 #, python-format
 msgid ""
-"File corrupted: Something was wrong with the retrieved file, please relaunch"
-" the task."
+"File corrupted: Something was wrong with the retrieved file, please relaunch "
+"the task."
 msgstr ""
 
 #. module: attachment_metadata
 #: help:ir.attachment.metadata,external_hash:0
 msgid ""
 "File hash comes from the external owner of the file.\n"
-"If provided allow to check than downloaded file is the exact copy of the original file."
+"If provided allow to check than downloaded file is the exact copy of the "
+"original file."
 msgstr ""
 
 #. module: attachment_metadata
@@ -180,6 +199,13 @@ msgid "Meta data Attachments"
 msgstr ""
 
 #. module: attachment_metadata
+#: field:ir.attachment.metadata,mimetype:0
+#, fuzzy
+#| msgid "Type"
+msgid "Mime Type"
+msgstr "Tipo"
+
+#. module: attachment_metadata
 #: view:ir.attachment.metadata:attachment_metadata.view_external_attachment_search
 msgid "My Document(s)"
 msgstr "Mis Documento(s)"
@@ -188,6 +214,11 @@ msgstr "Mis Documento(s)"
 #: view:ir.attachment.metadata:attachment_metadata.view_external_attachment_search
 msgid "Owner"
 msgstr "Propietario"
+
+#. module: attachment_metadata
+#: field:ir.attachment.metadata,datas_big:0
+msgid "Resized file content"
+msgstr ""
 
 #. module: attachment_metadata
 #: field:ir.attachment.metadata,res_id:0

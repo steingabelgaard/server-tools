@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * attachment_metadata
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
@@ -10,11 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2017-04-28 09:47+0000\n"
 "PO-Revision-Date: 2016-06-01 09:37+0000\n"
 "Last-Translator: <>\n"
-"Language-Team: Japanese (http://www.transifex.com/oca/OCA-server-tools-8-0/language/ja/)\n"
+"Language-Team: Japanese (http://www.transifex.com/oca/OCA-server-tools-8-0/"
+"language/ja/)\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: attachment_metadata
@@ -25,6 +26,11 @@ msgstr ""
 #. module: attachment_metadata
 #: field:ir.attachment.metadata,name:0
 msgid "Attachment Name"
+msgstr ""
+
+#. module: attachment_metadata
+#: field:ir.attachment.metadata,website_url:0
+msgid "Attachment URL"
 msgstr ""
 
 #. module: attachment_metadata
@@ -75,6 +81,11 @@ msgid "Database Data"
 msgstr ""
 
 #. module: attachment_metadata
+#: field:ir.attachment.metadata,datas_checksum:0
+msgid "Datas checksum"
+msgstr ""
+
+#. module: attachment_metadata
 #: field:ir.attachment.metadata,description:0
 msgid "Description"
 msgstr "説明"
@@ -105,18 +116,24 @@ msgid "File Size"
 msgstr ""
 
 #. module: attachment_metadata
+#: field:ir.attachment.metadata,file_type_icon:0
+msgid "File Type Icon"
+msgstr ""
+
+#. module: attachment_metadata
 #: code:addons/attachment_metadata/models/attachment.py:43
 #, python-format
 msgid ""
-"File corrupted: Something was wrong with the retrieved file, please relaunch"
-" the task."
+"File corrupted: Something was wrong with the retrieved file, please relaunch "
+"the task."
 msgstr ""
 
 #. module: attachment_metadata
 #: help:ir.attachment.metadata,external_hash:0
 msgid ""
 "File hash comes from the external owner of the file.\n"
-"If provided allow to check than downloaded file is the exact copy of the original file."
+"If provided allow to check than downloaded file is the exact copy of the "
+"original file."
 msgstr ""
 
 #. module: attachment_metadata
@@ -179,6 +196,13 @@ msgid "Meta data Attachments"
 msgstr ""
 
 #. module: attachment_metadata
+#: field:ir.attachment.metadata,mimetype:0
+#, fuzzy
+#| msgid "Type"
+msgid "Mime Type"
+msgstr "タイプ"
+
+#. module: attachment_metadata
 #: view:ir.attachment.metadata:attachment_metadata.view_external_attachment_search
 msgid "My Document(s)"
 msgstr ""
@@ -186,6 +210,11 @@ msgstr ""
 #. module: attachment_metadata
 #: view:ir.attachment.metadata:attachment_metadata.view_external_attachment_search
 msgid "Owner"
+msgstr ""
+
+#. module: attachment_metadata
+#: field:ir.attachment.metadata,datas_big:0
+msgid "Resized file content"
 msgstr ""
 
 #. module: attachment_metadata

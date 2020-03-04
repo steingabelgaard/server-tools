@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-18 11:58+0000\n"
-"PO-Revision-Date: 2016-11-18 11:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,13 +19,13 @@ msgid "Access Controls"
 msgstr ""
 
 #. module: base_user_role
-#: field:res.users.role,menu_access:0
-msgid "Access Menu"
+#: model:ir.model,name:base_user_role.model_res_groups
+msgid "Access Groups"
 msgstr ""
 
 #. module: base_user_role
-#: field:res.users.role.line,is_enabled:0
-msgid "Enabled"
+#: field:res.users.role,menu_access:0
+msgid "Access Menu"
 msgstr ""
 
 #. module: base_user_role
@@ -43,6 +41,11 @@ msgstr ""
 #. module: base_user_role
 #: field:res.users.role,comment:0
 msgid "Comment"
+msgstr ""
+
+#. module: base_user_role
+#: field:res.users.role,dynamic_group_condition:0
+msgid "Condition"
 msgstr ""
 
 #. module: base_user_role
@@ -64,6 +67,16 @@ msgid "Display Name"
 msgstr ""
 
 #. module: base_user_role
+#: field:res.users.role,is_dynamic:0
+msgid "Dynamic"
+msgstr ""
+
+#. module: base_user_role
+#: field:res.users.role.line,is_enabled:0
+msgid "Enabled"
+msgstr ""
+
+#. module: base_user_role
 #: field:res.users.role.line,date_from:0
 msgid "From"
 msgstr ""
@@ -71,6 +84,11 @@ msgstr ""
 #. module: base_user_role
 #: field:res.users.role,full_name:0
 msgid "Group Name"
+msgstr ""
+
+#. module: base_user_role
+#: help:res.users.role,share:0
+msgid "Group created to set access rights for sharing data with some users."
 msgstr ""
 
 #. module: base_user_role
@@ -82,6 +100,11 @@ msgstr ""
 #: field:res.users.role,id:0
 #: field:res.users.role.line,id:0
 msgid "ID"
+msgstr ""
+
+#. module: base_user_role
+#: help:res.users.role,is_portal:0
+msgid "If checked, this group is usable as a portal."
 msgstr ""
 
 #. module: base_user_role
@@ -113,6 +136,11 @@ msgid "Name"
 msgstr ""
 
 #. module: base_user_role
+#: field:res.users.role,is_portal:0
+msgid "Portal"
+msgstr ""
+
+#. module: base_user_role
 #: view:res.users.role:base_user_role.view_res_users_role_form
 #: view:res.users.role:base_user_role.view_res_users_role_tree
 #: field:res.users.role.line,role_id:0
@@ -139,8 +167,13 @@ msgid "Rules"
 msgstr ""
 
 #. module: base_user_role
-#: field:res.users,scoring:0
-msgid "Scoring (%)"
+#: field:res.users.role,share:0
+msgid "Share Group"
+msgstr ""
+
+#. module: base_user_role
+#: help:res.users.role,dynamic_group_condition:0
+msgid "The condition to be met for a user to be a member of this group. It is evaluated as python code at login time, you get `user` passed as a browse record"
 msgstr ""
 
 #. module: base_user_role
@@ -161,6 +194,11 @@ msgstr ""
 #. module: base_user_role
 #: model:ir.model,name:base_user_role.model_res_users_role
 msgid "User role"
+msgstr ""
+
+#. module: base_user_role
+#: model:ir.module.category,name:base_user_role.ir_module_category_role
+msgid "User roles"
 msgstr ""
 
 #. module: base_user_role
