@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//auditlog/models/autovacuum.py=utf-8
+encoding//auditlog/models/http_request.py=utf-8
+encoding//auditlog/models/log.py=utf-8
+encoding//auditlog/models/rule.py=utf-8
+encoding//auditlog/tests/test_auditlog.py=utf-8
+encoding//dbfilter_from_header/__init__.py=utf-8
+encoding//mass_editing/models/mass_object.py=utf-8
+encoding//sql_export/sql_export.py=utf-8
+encoding//sql_export/wizard/wizard_file.py=utf-8
+encoding//sql_request_abstract/models/sql_request_mixin.py=utf-8
