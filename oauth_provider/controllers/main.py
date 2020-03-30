@@ -162,7 +162,7 @@ class OAuth2ProviderController(http.Controller):
 
         # If no client_id is specified, get it from session
         if client_id is None:
-            client_id = http.request.httpsession.get(
+            client_id = http.request.session.get(
                 'oauth_credentials', {}).get('client_id')
 
         client = http.request.env['oauth.provider.client'].sudo().search([
