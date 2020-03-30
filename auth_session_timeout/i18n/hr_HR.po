@@ -21,11 +21,6 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: auth_session_timeout
-#: model:ir.model,name:auth_session_timeout.model_ir_http
-msgid "HTTP routing"
-msgstr ""
-
-#. module: auth_session_timeout
 #: model:ir.model,name:auth_session_timeout.model_res_users
 msgid "Users"
 msgstr "Korisnici"
