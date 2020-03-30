@@ -7,10 +7,10 @@ import logging
 from datetime import datetime, timedelta
 from werkzeug.test import Client
 from werkzeug.wrappers import BaseResponse
-from openerp import fields
-from openerp.service import wsgi_server
-from openerp.tests.common import TransactionCase
-#  from openerp.tools.misc import consteq
+from odoo import fields
+from odoo.service import wsgi_server
+from odoo.tests.common import TransactionCase
+#  from odoo.tools.misc import consteq
 import passlib.utils
 
 _logger = logging.getLogger(__name__)
@@ -103,7 +103,7 @@ class OAuthProviderControllerTransactionCase(TransactionCase):
             headers=headers)
 
     @mock.patch('openerp.http.WebRequest.env', new_callable=mock.PropertyMock)
-    #@mock.patch('openerp.http.WebRequest.validate_csrf')
+    @mock.patch('openerp.http.WebRequest.validate_csrf')
     def post_request(
             self, uri, request_env, data=None, headers=None):
         """ Execute a POST request on the test client """

@@ -3,8 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import datetime, timedelta
-from openerp import fields, exceptions
-from openerp.tests.common import TransactionCase
+from odoo import fields, exceptions
+from odoo.tests.common import TransactionCase
 
 
 class TestOAuthProviderToken(TransactionCase):
@@ -218,7 +218,7 @@ class TestOAuthProviderToken(TransactionCase):
         expired_tokens, not_expired_tokens = \
             self._generate_tokens_for_active_search()
 
-        with self.assertRaises(exceptions.Warning):
+        with self.assertRaises(exceptions.UserError):
             token_obj.search([('active', '>', True)])
 
     def test_get_data_from_model_with_at_least_one_scope_matching(self):

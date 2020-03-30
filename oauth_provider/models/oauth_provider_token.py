@@ -2,7 +2,7 @@
 # Copyright 2016 SYLEAM
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, api, fields, exceptions, _
+from odoo import models, api, fields, exceptions, _
 
 import logging
 _logger = logging.getLogger(__name__)
@@ -74,7 +74,7 @@ class OAuthProviderToken(models.Model):
             domain = [('expires_at', operators[operator, operand],
                        fields.Datetime.now())]
         else:
-            raise exceptions.Warning(
+            raise exceptions.UserError(
                 _('Invalid operator {operator} for  field active!').format(
                     operator=operator))
 
