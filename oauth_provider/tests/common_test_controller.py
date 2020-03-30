@@ -15,9 +15,6 @@ from odoo.tools.misc import consteq
 _logger = logging.getLogger(__name__)
 
 
-
-
-
 class OAuthProviderControllerTransactionCase(TransactionCase):
     def setUp(self, application_type):
         super(OAuthProviderControllerTransactionCase, self).setUp()
