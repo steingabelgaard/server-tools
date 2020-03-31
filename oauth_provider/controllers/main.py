@@ -62,7 +62,7 @@ class OAuth2ProviderController(http.Controller):
         return werkzeug.wrappers.BaseResponse(
             json.dumps(data), status=status, headers=headers)
 
-    @http.route('/oauth2/authorize', type='http', auth='user', methods=['GET'])
+    @http.route('/oauth2/authorize', type='http', auth='user', methods=['GET'],  website=True)
     def authorize(self, client_id=None, response_type=None, redirect_uri=None,
                   scope=None, state=None, *args, **kwargs):
         """ Check client's request, and display an authorization page to the user,
@@ -184,6 +184,7 @@ class OAuth2ProviderController(http.Controller):
             ])
         if existing_code:
             credentials['odoo_user_id'] = existing_code.user_id.id
+            credentials['scope'] = ' '.join(existing_code.scope_ids.mapped('code'))
         # Retrieve the existing token, if any, to get Odoo's user id
         existing_token = http.request.env['oauth.provider.token'].search([
             ('client_id.identifier', '=', client_id),
@@ -208,6 +209,7 @@ class OAuth2ProviderController(http.Controller):
         ensure_db()
         token = self._check_access_token(access_token)
         if not token:
+            _logger.info('tokeninfo: invalid_or_expired_token')
             return self._json_response(
                 data={'error': 'invalid_or_expired_token'}, status=401)
 
@@ -235,8 +237,10 @@ class OAuth2ProviderController(http.Controller):
         Similar to Google's "userinfo" request
         """
         ensure_db()
+        _logger.info('ACCESS TOKEN: %s', access_token)
         token = self._check_access_token(access_token)
         if not token:
+            _logger.info('userinfo: invalid_or_expired_token')
             return self._json_response(
                 data={'error': 'invalid_or_expired_token'}, status=401)
 
@@ -249,6 +253,7 @@ class OAuth2ProviderController(http.Controller):
         ensure_db()
         token = self._check_access_token(access_token)
         if not token:
+            _logger.info('otherinfo: invalid_or_expired_token')
             return self._json_response(
                 data={'error': 'invalid_or_expired_token'}, status=401)
 
@@ -277,6 +282,7 @@ class OAuth2ProviderController(http.Controller):
                 ('refresh_token', '=', token),
             ])
         if not db_token:
+            _logger.info('revoke_token: invalid_or_expired_token')
             return self._json_response(
                 data={'error': 'invalid_or_expired_token'}, status=401)
         oauth2_server = db_token.client_id.get_oauth2_server()
