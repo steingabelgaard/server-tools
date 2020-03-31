@@ -91,8 +91,8 @@ class OAuth2ProviderController(http.Controller):
             # object is not possible
             _logger.info('SCOPES: %s', scopes)
             #scopes=scopes[0].split(',')
-            http.request.httpsession['oauth_scopes'] = scopes
-            http.request.httpsession['oauth_credentials'] = {
+            http.request.session['oauth_scopes'] = scopes
+            http.request.session['oauth_credentials'] = {
                 'client_id': credentials['client_id'],
                 'redirect_uri': credentials['redirect_uri'],
                 'response_type': credentials['response_type'],
@@ -129,7 +129,7 @@ class OAuth2ProviderController(http.Controller):
     def authorize_post(self, *args, **kwargs):
         """ Redirect to the requested URI during the authorization """
         client = http.request.env['oauth.provider.client'].search([
-            ('identifier', '=', http.request.httpsession.get(
+            ('identifier', '=', http.request.session.get(
                 'oauth_credentials', {}).get('client_id'))])
         if not client:
             return http.request.render(
@@ -141,8 +141,8 @@ class OAuth2ProviderController(http.Controller):
 
         # Retrieve needed arguments for oauthlib methods
         uri, http_method, body, headers = self._get_request_information()
-        scopes = http.request.httpsession['oauth_scopes']
-        credentials = http.request.httpsession['oauth_credentials']
+        scopes = http.request.session['oauth_scopes']
+        credentials = http.request.session['oauth_credentials']
         headers, body, status = oauth2_server.create_authorization_response(
             uri, http_method=http_method, body=body, headers=headers,
             scopes=scopes, credentials=credentials)
