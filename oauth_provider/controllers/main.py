@@ -242,7 +242,7 @@ class OAuth2ProviderController(http.Controller):
         if not token:
             return self._json_response(
                 data={'error': 'invalid_or_expired_token'}, status=401)
-        _logger.info('DATA 0: %s %s', token.user_id.name, token.scope_ids)
+        #_logger.info('DATA 0: %s %s', token.user_id.name, token.scope_ids)
 
         data = token.get_data_for_model('res.users', res_id=token.user_id.id)
         _logger.info('DATA 1: %s', data)
