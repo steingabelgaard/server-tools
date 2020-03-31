@@ -7,10 +7,10 @@ import logging
 from datetime import datetime, timedelta
 from werkzeug.test import Client
 from werkzeug.wrappers import BaseResponse
-from openerp import fields
-from openerp.service import wsgi_server
-from openerp.tests.common import TransactionCase
-from openerp.tools.misc import consteq
+from odoo import fields
+from odoo.service import wsgi_server
+from odoo.tests.common import TransactionCase
+from odoo.tools.misc import consteq
 
 _logger = logging.getLogger(__name__)
 

@@ -7,7 +7,7 @@ import json
 import mock
 import logging
 from datetime import datetime
-from openerp import fields
+from odoo import fields
 
 _logger = logging.getLogger(__name__)
 
