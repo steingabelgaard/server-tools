@@ -207,6 +207,8 @@ class OAuth2ProviderController(http.Controller):
         Similar to Google's "tokeninfo" request
         """
         ensure_db()
+        if not access_token and 'HTTP_AUTHORIZATION' in http.request.httprequest.environ:
+            access_token = http.request.httprequest.environ['HTTP_AUTHORIZATION'].split()[1]
         token = self._check_access_token(access_token)
         if not token:
             _logger.info('tokeninfo: invalid_or_expired_token')
@@ -237,7 +239,10 @@ class OAuth2ProviderController(http.Controller):
         Similar to Google's "userinfo" request
         """
         ensure_db()
-        _logger.info('ACCESS TOKEN: %s', access_token)
+        _logger.info('ACCESS TOKEN: %s %s', access_token, http.request.httprequest.environ)
+        if not access_token and 'HTTP_AUTHORIZATION' in http.request.httprequest.environ:
+            access_token = http.request.httprequest.environ['HTTP_AUTHORIZATION'].split()[1]
+
         token = self._check_access_token(access_token)
         if not token:
             _logger.info('userinfo: invalid_or_expired_token')
@@ -251,6 +256,8 @@ class OAuth2ProviderController(http.Controller):
     def otherinfo(self, access_token=None, model=None, *args, **kwargs):
         """ Return allowed information about the requested model """
         ensure_db()
+        if not access_token and 'HTTP_AUTHORIZATION' in http.request.httprequest.environ:
+            access_token = http.request.httprequest.environ['HTTP_AUTHORIZATION'].split()[1]
         token = self._check_access_token(access_token)
         if not token:
             _logger.info('otherinfo: invalid_or_expired_token')
