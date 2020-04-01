@@ -20,11 +20,6 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #. module: auth_session_timeout
-#: model:ir.model,name:auth_session_timeout.model_ir_http
-msgid "HTTP routing"
-msgstr ""
-
-#. module: auth_session_timeout
 #: model:ir.model,name:auth_session_timeout.model_res_users
 msgid "Users"
 msgstr "المستخدمون"
