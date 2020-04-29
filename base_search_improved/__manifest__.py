@@ -4,10 +4,10 @@
 {
     'name': 'Improved Search',
     'summary': 'Fuzzy search: use wildcards ("%") in place of spaces',
-    'version': '8.0.1.0.0',
+    'version': '12.0.1.0.0',
     'category': 'Uncategorized',
     'website': 'https://odoo-community.org/',
-    'author': 'Daniel Reis, Odoo Community Association (OCA)',
+    'author': 'Daniel Reis, Stein & Gabelgaard ApS, Odoo Community Association (OCA)',
     'license': 'AGPL-3',
     'installable': True,
     'depends': [
