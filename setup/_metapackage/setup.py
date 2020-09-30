@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo12-addon-attachment_queue',
+        'odoo12-addon-attachment_synchronize',
         'odoo12-addon-attachment_unindex_content',
         'odoo12-addon-auditlog',
         'odoo12-addon-auto_backup',
@@ -37,6 +38,7 @@ setuptools.setup(
         'odoo12-addon-fetchmail_notify_error_to_sender',
         'odoo12-addon-html_image_url_extractor',
         'odoo12-addon-html_text',
+        'odoo12-addon-iap_alternative_provider',
         'odoo12-addon-ir_sequence_standard_default',
         'odoo12-addon-module_analysis',
         'odoo12-addon-module_auto_update',
@@ -45,6 +47,7 @@ setuptools.setup(
         'odoo12-addon-sentry',
         'odoo12-addon-slow_statement_logger',
         'odoo12-addon-sql_export',
+        'odoo12-addon-sql_export_excel',
         'odoo12-addon-sql_export_mail',
         'odoo12-addon-sql_request_abstract',
     ],
